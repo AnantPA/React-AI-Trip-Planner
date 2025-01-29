@@ -39,10 +39,6 @@ const CreateTrip = () => {
     });
   };
 
-  useEffect(() => {
-    console.log(formData, "input");
-  }, [formData]);
-
   const login = useGoogleLogin({
     onSuccess: (codeRes) => GetUserProfile(codeRes),
     onError: (error) => console.log(error),
@@ -79,7 +75,7 @@ const CreateTrip = () => {
       .replace("{totalDays}", formData?.noOfDays);
 
     const result = await chatSession.sendMessage(Final_PROMPT);
-    console.log(result?.response?.text());
+
     setLoading(false);
     SaveAiTrip(result?.response?.text());
   };
@@ -111,7 +107,6 @@ const CreateTrip = () => {
         }
       )
       .then((response) => {
-        console.log(response, "!!!");
         localStorage.setItem("AI_USER", JSON.stringify(response.data));
         setOpenDialog(false);
         onGenerateTrip();

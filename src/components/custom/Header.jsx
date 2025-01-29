@@ -49,10 +49,12 @@ const Header = () => {
 
   return (
     <div className="p-3 shadow-sm flex justify-between items-center px-5">
-      <img src="/logo.svg" />
+      <Link to="/">
+        <img src="/ai-logo.png" />
+      </Link>
       <div>
         {user ? (
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-8">
             <Link to="/create-trip">
               <Button variant="outline" className="rounded-full">
                 Create trip
